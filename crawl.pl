@@ -56,7 +56,7 @@ sub check_if_command {
                         list_nicks();
                     } elsif ($command eq '!help') {
                         public_msg($chan, uc 'type !cmdinfo to see a list of all the bot commands. '.
-                                          '!watched will list all nicks being monitored. !add/!rem to change list. '.
+                                          '!watched will list all nicks being monitored. !add/!remove to change list. '.
                                           '??death yak, ??death yak[2], @??death yak. praise be to trog.')
                     }
                 } else {
