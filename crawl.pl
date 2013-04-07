@@ -27,16 +27,15 @@ my $ts = Irssi::server_find_tag($target_server);
 my $rs = Irssi::server_find_tag($root_server);
 my %commands = (
     'Sizzell' => ['%whereis','%dump'],
-    'Wenzell' => ['??','!abyss','!aplayers','!apt','!cdefine','!cheers','!cmdinfo','!coffee',
-                  '!copysave','!dump','!echo','!eplayers','!ftw','!function','!help','!idle',
-                  '!learn','!macro','!messages','!nick','!players','!rc','!rng','!screensize',
-                  '!seen','!send','!skill','!source','!tell','!vault','!whereis','!wtf'],
     'Gretell' => ['@??','@whereis'],
-    'Sequell' => ['!chars','!cmdinfo','!deathsby','!deathsin','!gamesby','!gkills','!help','!hs',
-                  '!killsby','!lg','!listgame','!lm','!log','!nick','!streak','!tlg','!ttr','!ttyrec',
-                  '!tv','!tvdef','!won'],
+    'Sequell' => ['!chars','!cmd','!cmdinfo','!deathsin','!gamesby','!gkills','!help','!hs',
+                  '!keyworddef','!killsby','!kw','!lg','!listgame','!lm','!log','!nick','!streak',
+                  '!ttr','!ttyrec','!tv','!tvdef','!won'],
     'apocalypsebot' => ['!time'],
-    'Henzell' => [],
+    'Henzell' => ['??','!abyss','!apt','!cdefine','!cheers','!cmdinfo','!coffee','!dump','!echo',
+                  '!ftw','!function','!help','!idle','!learn','!macro','!messages','!nick',
+                  '!rc','!rng','!seen','!send','!skill','!source','!tell','!time','!vault',
+                  '!whereis','!wtf'],
     $bot_name => ['!add', '!remove', '!watched', '!help']
     );
 
