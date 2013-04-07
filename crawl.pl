@@ -37,7 +37,7 @@ my %commands = (
                   '!tv','!tvdef','!won'],
     'apocalypsebot' => ['!time'],
     'Henzell' => [],
-    $bot_name => ['!add', '!rem', '!watched', '!help']
+    $bot_name => ['!add', '!remove', '!watched', '!help']
     );
 
 sub check_if_command {
@@ -51,7 +51,7 @@ sub check_if_command {
                 if ($bot eq $bot_name) {
                     if ($command eq '!add') {
                         add_nick(lc $clean_msg);
-                    } elsif ($command eq '!rem') {
+                    } elsif ($command eq '!remove') {
                         rem_nick(lc $clean_msg);
                     } elsif ($command eq '!watched') {
                         list_nicks();
