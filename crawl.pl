@@ -19,10 +19,10 @@ $VERSION = '1.00';
 print CLIENTCRAP "loading crawl.pl $VERSION!";
 
 my $root_server = "freenode";
-my $bot_name = "OCTOTROG";
-my $root_chan = "##crawl";
+my $bot_name = "treefrog";
+my $root_chan = "##fakecrawl";
 my $target_server = "lunarnet";
-my @target_chan = qw(#changeme);
+my @target_chan = qw(#testtrog);
 my $ts = Irssi::server_find_tag($target_server);
 my $rs = Irssi::server_find_tag($root_server);
 my %commands = (
@@ -36,7 +36,12 @@ my %commands = (
                   '!ftw','!function','!help','!idle','!learn','!macro','!messages','!nick',
                   '!rc','!rng','!seen','!send','!skill','!source','!tell','!time','!vault',
                   '!whereis','!wtf'],
+<<<<<<< .merge_file_xrtLaz
     $bot_name => ['!add', '!remove', '!watched', '!help']
+=======
+    $bot_name => ['!add', '!rem', '!watched', '!help'],
+    'shmup' => []
+>>>>>>> .merge_file_tWOUMM
     );
 
 sub check_if_command {
