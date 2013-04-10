@@ -44,15 +44,15 @@ sub check_buttcoins {
 }
 
 sub get_score {
-    return Irssi::settings_get_str("highscore");
+    return Irssi::settings_get_str("value");
 }
 
 sub set_score {
     my $score = shift;
-    Irssi::settings_set_str("highscore", $score);
+    Irssi::settings_set_str("value", $score);
 }
 
-Irssi::settings_add_str("buttcoin", "highscore", "");
+Irssi::settings_add_str("buttcoin", "value", "");
 Irssi::timeout_add($interval, "check_buttcoins", "");
 
 check_buttcoins(); # run first time you load script
