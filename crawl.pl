@@ -36,12 +36,8 @@ my %commands = (
                   '!ftw','!function','!help','!idle','!learn','!macro','!messages','!nick',
                   '!rc','!rng','!seen','!send','!skill','!source','!tell','!time','!vault',
                   '!whereis','!wtf'],
-<<<<<<< .merge_file_xrtLaz
-    $bot_name => ['!add', '!remove', '!watched', '!help']
-=======
     $bot_name => ['!add', '!rem', '!watched', '!help'],
     'shmup' => []
->>>>>>> .merge_file_tWOUMM
     );
 
 sub check_if_command {
@@ -55,13 +51,13 @@ sub check_if_command {
                 if ($bot eq $bot_name) {
                     if ($command eq '!add') {
                         add_nick(lc $clean_msg);
-                    } elsif ($command eq '!remove') {
+                    } elsif ($command eq '!rem') {
                         rem_nick(lc $clean_msg);
                     } elsif ($command eq '!watched') {
                         list_nicks();
                     } elsif ($command eq '!help') {
                         public_msg($chan, uc 'type !cmdinfo to see a list of all the bot commands. '.
-                                          '!watched will list all nicks being monitored. !add/!remove to change list. '.
+                                          '!watched will list all nicks being monitored. !add/!rem to change list. '.
                                           '??death yak, ??death yak[2], @??death yak. praise be to trog.')
                     }
                 } else {
