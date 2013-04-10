@@ -31,8 +31,6 @@ sub check_buttcoins {
     my $old_score = get_score() || 0;
     # grab the current highest value
     my $new_score = $data->{return}{last}{value};
-    # return if the difference is 0
-    return unless $new_score != $old_score;
     # save the new score
     set_score($new_score);
     # grab the difference
@@ -40,7 +38,7 @@ sub check_buttcoins {
     # grab prettier score
     my $score = $data->{return}{last}{display};
     # set the msg
-    my $msg = $score . ' (' . (($diff > 0) ? '+' : '') . sprintf("%.5f", $diff).')';
+    my $msg = $score . ' (' . (($diff >= 0) ? '+' : '') . sprintf("%.5f", $diff).')';
     # send the msg
     Irssi::active_win()->print("BTC $msg", 0);
 }
@@ -56,6 +54,8 @@ sub set_score {
 
 Irssi::settings_add_str("buttcoin", "highscore", "");
 Irssi::timeout_add($interval, "check_buttcoins", "");
+
+check_buttcoins(); # run first time you load script
 
 print CLIENTCRAP "/set buttcoin_interval 250000 (in milliseconds)";
 print CLIENTCRAP "buttcoin check interval: " . $interval . "ms";
