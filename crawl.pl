@@ -26,7 +26,7 @@ my $root_server = "freenode";
 my $root_chan = "##crawl";
 my $target_server = "lunarnet";
 my @target_chan = qw(#changeme);
-my $db_location = "/home/octotrog/.irssi/scripts/crawl.db";
+my $db_location = "/path/to/crawl.db";
 my $ts = Irssi::server_find_tag($target_server);
 my $rs = Irssi::server_find_tag($root_server);
 
@@ -430,3 +430,4 @@ $dbh->disconnect();
 
 print CLIENTCRAP "/set crawlwatchnicks ed edd eddy ...";
 print CLIENTCRAP "Watched nicks: " . Irssi::settings_get_str("crawlwatchnicks");
+
