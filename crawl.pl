@@ -30,15 +30,6 @@ my $db_location = "/home/octotrog/.irssi/scripts/crawl.db";
 my $ts = Irssi::server_find_tag($target_server);
 my $rs = Irssi::server_find_tag($root_server);
 
-# my $bot_name = "treefrog";
-# my $root_server = "slashnet";
-# my $root_chan = "##crawltest";
-# my $target_server = "lunarnet";
-# my @target_chan = qw(#testing123);
-# my $db_location = "crawl.db";
-# my $ts = irssi::server_find_tag($target_server);
-# my $rs = irssi::server_find_tag($root_server);
-
 my $dbh;
 
 my %commands = (
@@ -53,7 +44,7 @@ my %commands = (
                   '!rc','!rng','!seen','!send','!skill','!source','!tell','!time','!vault',
                   '!whereis','!wtf'],
     $bot_name => ['!watch', '!unwatch', '!watched', '!help', '!dbadd', '!dbremove', '?!', '!dblist', '$$'],
-    'shmup' => []
+    'Cheibriados' => ['%??']
     );
 
 sub db_connect {
