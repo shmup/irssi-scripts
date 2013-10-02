@@ -2,6 +2,7 @@
 
 use strict;
 use Irssi;
+use Try::Tiny;
 use DBI;
 use warnings;
 use vars qw($VERSION %IRSSI);
@@ -387,7 +388,11 @@ sub public_msg  {
 
 sub private_msg {
     my ($bot, $msg) = @_;
-    $rs->send_message($bot, $msg, 1)
+    try {
+            $rs->send_message($bot, $msg, 1)
+    } catch {
+            warn "caught error: $_";
+    };
 }
 
 sub dispatch {
