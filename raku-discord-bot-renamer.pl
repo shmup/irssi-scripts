@@ -5,7 +5,7 @@ use strict;
 use vars qw($VERSION %IRSSI);
 use Irssi;
 
-$VERSION = '1.00';
+$VERSION = '1.01';
 %IRSSI = (
   authors     => 'Jared Miller <shmup>',
   contact     => 'jared@smell.flowers',
@@ -18,24 +18,22 @@ $VERSION = '1.00';
 
 my @channels = ("#raku", "#raku-dev", "#raku-beginner", "#moarvm", "#webring");
 
-sub rename_nick {
+sub rename_botnick {
   my ($server, $data, $nick, $address, $target) = @_;
+  if ($nick ne "discord-raku-bot") { return }; # get out
+
   my ($channel, $msg) = split(/ :/, $data, 2);
   my $oldnick = $nick;
 
   for (@channels) {
     if ($_ eq $channel) {
-      if ($nick eq "discord-raku-bot") {
-        my ($discord, $txt) = $msg =~ /^<(.*)>\s(.*)/;
+      my ($discord, $txt) = $msg =~ /^<(.*)>\s(.*)/;
+      if ($oldnick eq $discord) { continue }; # fail safe
 
-        # fail safe
-        if ($oldnick eq $discord) { continue };
-
-        Irssi::signal_emit("event privmsg", $server, "$channel :$txt", $discord, $address, $target);
-        Irssi::signal_stop();
-      }
+      Irssi::signal_emit("event privmsg", $server, "$channel :$txt", $discord, $address, $target);
+      Irssi::signal_stop();
     }
   }
 }
 
-Irssi::signal_add('event privmsg', 'rename_nick');
+Irssi::signal_add('event privmsg', 'rename_botnick');
