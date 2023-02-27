@@ -10,7 +10,7 @@ use strict;
 use vars qw($VERSION %IRSSI);
 use Irssi;
 
-$VERSION = '1.03';
+$VERSION = '1.04';
 %IRSSI   = (
   authors     => 'Jared Miller <shmup>',
   contact     => 'jared@smell.flowers',
@@ -18,7 +18,7 @@ $VERSION = '1.03';
   description => 'Replace `<discord-raku-bot> <nick>` with `<nick>`',
   license     => 'Artistic-2.0',
   url         => 'https://github.com/shmup/irssi-scripts',
-  changed     => '2023-02-24',
+  changed     => '2023-02-27',
 );
 
 my @channels = ("#raku", "#raku-dev", "#raku-beginner", "#moarvm", "#webring");
@@ -30,7 +30,7 @@ sub rename_botnick {
   my ($channel, $msg) = split(/ :/, $data, 2);
   if (!grep($channel, @channels)) {return}; # wrong channel
 
-  my ($discord, $txt) = $msg =~ /^<(.*)>\s(.*)/;
+  my ($discord, $txt) = $msg =~ /^<(.*?)>\s(.*)/;
   if ($discord eq "" or $txt eq "") {return}; # no reason to do anything
 
   Irssi::signal_emit(
